@@ -1,0 +1,66 @@
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+} 
+
+.texts {
+	color: white;
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    font-weight:lighter;
+    text-decoration: none;
+}
+
+.titles {
+	text-shadow: 2px 2px 5px black;
+	color: white;
+    font-family: Roboto, sans-serif;
+    font-size: 50px;
+    font-weight:lighter;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  text-align: center;
+ }
+
+.footerText {
+  	color: white;
+    display: inline-block;
+    padding: 1rem 1rem;
+  vertical-align: middle;
+  	text-decoration: none;
+  	font-family: Roboto, sans-serif;
+    font-size: 17px;
+    font-weight:lighter;
+}
+
+.footerBtn {
+	display: inline-block;
+    padding: 1rem 1rem;
+  vertical-align: middle;
+  
+}
+
+.footerChild {
+	display: inline-block;
+}
