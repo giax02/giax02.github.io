@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>MathJax example</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head><body>
 <h1>Projects</h1>
   <p>Coilgun</p>
   <p>UVlamp</p>
   <p>FloorCounter</p>
   <p>DounutCounter</p>
   <p>Power divider</p>
+When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+  \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
 </body>
 </html>
 
-<footer>
+<style>
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: black;
+  text-align: center;
+}
+</style>
+
+<div class="footer">
   <p>Author: Giacomo Leandrini</p>
   <p><a href="mailto:s1103348@studenti.univpm.it">s1103348@studenti.univpm.it</a></p>
-</footer>
+</div>
