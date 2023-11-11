@@ -4,12 +4,59 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Giax02</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="icon" type="image/png" href="favicon.png"/>
 </head>
+
 <body><center>
-<h1>5Ghz strip line 1:4 power divider</h1>
+<h1>Divisore di potenza 1:4 in stripline a 5Ghz</h1>
+<h2>Progetto</h2>
     <p>
-        <a href="powerdivider.htm" target="_blank">5Ghz strip line 1:4 power divider</a>
+        Circuitalmente parlando un divisore di potenza 1:n è descrivibile come n+1 porte in parallelo.<br> Per consuetudine pongo alla porta di
+        ingresso il numero n+1.<br> In questo caso voglio progettare un divisore 1:4 che spartisce la potenza equamnente su tutte le porte e con
+        impedenza di ingresso uguale alle impedenze di ogni singola porta in uscita uguali a 50 \(\Omega\), perciò normalizzo tutto a 50 \(\Omega\).
+        Se non interpongo nessun tipo di adattatore tra le linee, tra l'impedenza della linea di ingresso e l'impedenza parallelo delle 4 linee
+        di uscita avrò generalmente una riflettenza diversa da 0.<br> Avrò nello specifico una riflettenza pari a:
+        \[ \Gamma = { (\frac 1 4 - 1) \over (\frac 1 4+1) } = -{\frac3 4\over \frac 5 4 } = -\frac 3 5\]
+        Quindi per diminuire la riflessione e speranzosamente azzerarlo devo interporre un adattatore tra i due. <br>
+        Ora se utilizzo la seguente topologia:<br>
+        Posso ricondurmi al circuito dell'adattatore a doppia linea \(\frac \lambda 4\) adoperando semplici trasformazioni elettrotecniche.
+        Quindi ottengo che \( Z_1 = 2q,\ Z_2 = 4q,\ 4r = 1\),
+        perciò l'unica incognita rimasta da trovare è la \(q\).
+        Per ricavare la q dobbiamo conoscere il valore del return loss.
+        Se richiedo un valore di return loss in decibel di 30db allora:
+      \[ MRL = { -20log_{10}(\rho_m) } = 30\]
+      Perciò 
+      \[\rho_m = 10^{- \frac {30} {20} } = 0.032 \]
+      Ora possiamo applicare la formula per ricavare il valore di q ottimale:
+      \[ \Gamma = \sqrt[4]{ (\frac 1 4 - 1) \over (\frac 1 4+1) } = 0.696\]
+      Ora trovo che:
+      \[ \frac r q = 0.359\]
+      Abbiamo ora tutti gli elementi.
+      Analizzo le prestazioni in frequenza. Per fare ciò ricavo l'espressione del coefficiente di riflessione al variare di \(\theta\).<br>
+      Ricavo prima di tutto le matrici di trasmissione \(T_1\) e \(T_2\) relative alle linee di trasmissione:
+      $$ T_1(\theta) = \begin{bmatrix}cos(\theta) & iZ_1sin(\theta)\\ \frac i {Z_1}sin(\theta) & cos(\theta)\end{bmatrix},\ T_2(\theta) = \begin{bmatrix}cos(\theta) & iZ_2sin(\theta)\\ \frac i {Z_2}sin(\theta) & cos(\theta)\end{bmatrix}$$
+      \(T(\theta) = T_1(\theta)T_2(\theta)\)
+      Perciò ora:
+      \[Z_{IN}(\theta) = {{rT_{11}+T_{12}}\over{rT_{21}+T_{22}}} \]
+        <br><br><br><br><br><br><br>
+                                              
     </p>
 </center></body>
 </html>
+<!--
+    \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+    \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+-->
+
+<style>
+    p {
+        padding-left: 25%;
+        padding-right: 25%;
+      text-align: justify;
+        text-justify: auto;
+    }
+</style>
+</style>
